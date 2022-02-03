@@ -42,11 +42,15 @@ public class Recursion{
         System.out.println(word);
         return;
       }
-      for (char c = 'a'; c <= 'e';c++){
-        if (word.length()>0 && word.charAt(word.length()-1)!=c){
+      for (char c : letters){
+        if ((word.length()>0 && word.charAt(word.length()-1)!=c)||word.length()==0){
           printNoDoubleLetterWords(length-1,word+c, letters);
         }
       }
+    }
+    public static void main(String[] args){
+      char[] test = {'a','b','c'};
+      printNoDoubleLetterWords(3,test);
     }
 
 
