@@ -48,9 +48,29 @@ public class Recursion{
         }
       }
     }
+    public static String reverse(String s){
+      if (s.length()==0){
+        return s;
+      }
+      return s.substring(s.length()-1)+reverse(s.substring(0,s.length()-1));
+    }
+    public static long countNoDoubleLetterWords(int length,String word){
+      if (length==0){
+        return 1;
+      }
+      int ans = 0;
+      for (char c = 'a'; c <= 'z'; c++){
+        if ((word.length()>0 && word.charAt(word.length()-1)!=c)||word.length()==0){
+          ans += countNoDoubleLetterWords(length-1,word+c);
+        }
+      }
+      return ans;
+
+    }
     public static void main(String[] args){
       char[] test = {'a','b','c'};
-      printNoDoubleLetterWords(3,test);
+      countNoDoubleLetterWords(3,"");
+      System.out.println(reverse("abc"));
     }
 
 
