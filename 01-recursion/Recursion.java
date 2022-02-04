@@ -65,12 +65,23 @@ public class Recursion{
         }
       }
       return ans;
-
+    }
+    public static double sqrt(double n){
+      return sqrt(n, 1);
+    }
+    public static double sqrt(double n, double guess){
+      double check = guess*guess;
+      double percent = Math.abs(check-n)/100.0;
+      if (percent <= 0.001){
+        return guess;
+      }
+      return sqrt(n,(n/guess+guess)/2);
     }
     public static void main(String[] args){
       char[] test = {'a','b','c'};
-      countNoDoubleLetterWords(3,"");
+      System.out.println(countNoDoubleLetterWords(3,""));
       System.out.println(reverse("abc"));
+      System.out.println(sqrt(100.0));
     }
 
 
