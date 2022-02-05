@@ -71,17 +71,32 @@ public class Recursion{
     }
     public static double sqrt(double n, double guess){
       double check = guess*guess;
-      double percent = Math.abs(check-n)/100.0;
+      double percent = Math.abs(check-n)*(100.0);
+      if(n!=0){
+        percent/=n;
+      }
       if (percent <= 0.001){
         return guess;
       }
       return sqrt(n,(n/guess+guess)/2);
     }
+    public static int fibIter(int n, int f1, int f2){
+      if (n==0){
+        return f2;
+      }
+      return fibIter(n-1,f1+f2,f1);
+      }
     public static void main(String[] args){
       char[] test = {'a','b','c'};
       System.out.println(countNoDoubleLetterWords(3,""));
       System.out.println(reverse("abc"));
       System.out.println(sqrt(100.0));
+      System.out.println(sqrt(0.0));
+      System.out.println(fibIter(0,1,0));
+      System.out.println(fibIter(1,1,0));
+      System.out.println(fibIter(10,1,0));
+      System.out.println(fibIter(10,5,4));
+
     }
 
 
