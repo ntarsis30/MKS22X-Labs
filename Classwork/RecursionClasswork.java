@@ -88,6 +88,9 @@ public class RecursionClasswork{
         int[] test6 = {5,5,5};
         int[] test7 = {5,5,6};
         int[] test8 = {5,5,6,1};
+        int[] test9 = {1,1};
+        int[] test10 = {1,1,1};
+        int[] test11 = {2,4,2};
 
         System.out.println(groupSum(0,test,10));
         System.out.println(groupSum(0,test,14));
@@ -108,5 +111,9 @@ public class RecursionClasswork{
         System.out.println(splitOdd10(test6));
         System.out.println(splitOdd10(test7));
         System.out.println(splitOdd10(test8));
+
+        System.out.println(split53(test9));
+        System.out.println(split53(test10));
+        System.out.println(split53(test11));
     }
 }
