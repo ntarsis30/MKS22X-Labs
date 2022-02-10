@@ -30,6 +30,14 @@ public class RecursionClasswork{
         }
         return groupSum6(start+1, nums, target-nums[start])||groupSum6(start+1, nums, target);
     }
+    public boolean groupNoAdj(int start, int[] nums, int target) {
+        if(start==nums.length){
+            return target == 0;
+        }
+        return groupSum6(start+1, nums, target)||groupSum6(start+2, nums, target-nums[start]);
+    }
+
+
 
 
     public static void main(String[] args){
