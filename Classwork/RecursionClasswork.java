@@ -91,6 +91,7 @@ public class RecursionClasswork{
         if(target==0){
             return true;
         }
+        //System.out.println(target + " "+ start);
         if (start<nums.length){
             int next = start+1;
             boolean extra = true;
@@ -101,10 +102,10 @@ public class RecursionClasswork{
                     break;
                 }
             }
-            if(extra){
+            if(extra&&start+1<nums.length){
                 next++;
             }
-            return groupSumClump(next,nums,target-nums[start]*(next-start))||groupSumClump(start+1,nums,target);
+            return groupSumClump(next,nums,target-nums[start]*(next-start))||groupSumClump(next,nums,target);
         }
         return false;
     }
