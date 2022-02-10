@@ -22,21 +22,13 @@ public class RecursionClasswork{
         return groupSum(0,nums,half_sum/2);
     }
     public static boolean groupSum6(int start, int[] nums, int target) {
-        if(target==0 && start==nums.length){
-            return true;
+        if(start==nums.length){
+            return target == 0;
         }
-        if (target<0){
-            return false;
+        if (nums[start]==6){
+            return groupSum6(start+1, nums, target-nums[start]);
         }
-        if (start<nums.length && nums[start]!=6){
-            return groupSum(start+1, nums, target-nums[start])||groupSum(start+1, nums, target);
-        }
-        else if(start < nums.length){
-            return groupSum(start+1, nums, target-nums[start]);
-        }
-        return false;
-
-  
+        return groupSum6(start+1, nums, target-nums[start])||groupSum6(start+1, nums, target);
     }
 
 
