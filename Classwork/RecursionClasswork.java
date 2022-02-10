@@ -87,10 +87,27 @@ public class RecursionClasswork{
         return groupSum5(start+1, nums, target-nums[start])||groupSum5(start+1, nums, target);
   
     }
-
-
-
-
+    public static boolean groupSumClump(int start, int[] nums, int target) {
+        if(target==0){
+            return true;
+        }
+        if (start<nums.length){
+            int next = start+1;
+            boolean extra = true;
+            for (int i = start+1; i < nums.length; i++){
+                if (nums[i]!=nums[start]){
+                    next = i;
+                    extra = false;
+                    break;
+                }
+            }
+            if(extra){
+                next++;
+            }
+            return groupSumClump(next,nums,target-nums[start]*(next-start))||groupSumClump(start+1,nums,target);
+        }
+        return false;
+    }
     public static void main(String[] args){
         int[] test = {8,4,2};
         int[] test1 = {2,2};
@@ -104,6 +121,9 @@ public class RecursionClasswork{
         int[] test9 = {1,1};
         int[] test10 = {1,1,1};
         int[] test11 = {2,4,2};
+        int[] test12 = {2,4,8};
+        int[] test13 = {1,2,4,8,1};
+        int[] test14 = {2,4,4,8};
 
         System.out.println(groupSum(0,test,10));
         System.out.println(groupSum(0,test,14));
@@ -132,5 +152,9 @@ public class RecursionClasswork{
         System.out.println(groupSum5(0,test5,19));
         System.out.println(groupSum5(0,test5,17));
         System.out.println(groupSum5(0,test5,12));
+
+        System.out.println(groupSumClump(0,test12,10));
+        System.out.println(groupSumClump(0,test13,14));
+        System.out.println(groupSumClump(0,test14,14));
     }
 }
