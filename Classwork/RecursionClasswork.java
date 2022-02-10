@@ -30,7 +30,7 @@ public class RecursionClasswork{
         }
         return groupSum6(start+1, nums, target-nums[start])||groupSum6(start+1, nums, target);
     }
-    public boolean groupNoAdj(int start, int[] nums, int target) {
+    public static boolean groupNoAdj(int start, int[] nums, int target) {
         if(start==nums.length){
             return target == 0;
         }
@@ -46,6 +46,7 @@ public class RecursionClasswork{
         int[] test2 = {2,3};        
         int[] test3 = {5,2,3};
         int[] test4 = {5,6,2};
+        int[] test5 = {2,5,10,4};
 
         System.out.println(groupSum(0,test,10));
         System.out.println(groupSum(0,test,14));
@@ -58,5 +59,9 @@ public class RecursionClasswork{
         System.out.println(groupSum6(0,test4,8));
         System.out.println(groupSum6(0,test4,9));
         System.out.println(groupSum6(0,test4,7));
+
+        System.out.println(groupNoAdj(0,test5,12));
+        System.out.println(groupNoAdj(0,test5,14));
+        System.out.println(groupNoAdj(0,test5,7));
     }
 }
