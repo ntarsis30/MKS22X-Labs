@@ -51,8 +51,31 @@ public class RecursionClasswork{
             return helpSplit10(start+1, nums, sum1+nums[start],sum2-nums[start])||helpSplit10(start+1, nums, sum1, sum2);
         }
         return false;
-
     }
+    public static boolean split53(int[] nums) {
+        int sum = 0;
+        for (int i : nums){
+            sum+=i;
+        }
+        return helpSplit53(0,nums,0,sum);
+    }
+    public static boolean helpSplit53(int start, int[] nums, int sum1, int sum2){
+        if (sum1==sum2){
+            return true;
+        }
+        if (start<nums.length){
+            if (nums[start]%5==0){
+                return helpSplit53(start+1, nums, sum1+nums[start],sum2-nums[start]);
+            }
+            else if (nums[start]%3==0){
+                return helpSplit53(start+1,nums,sum1,sum2);
+            }
+            return helpSplit53(start+1, nums, sum1+nums[start],sum2-nums[start])||helpSplit53(start+1,nums,sum1,sum2);
+        }
+        return false;
+    }
+
+
 
 
     public static void main(String[] args){
@@ -81,5 +104,9 @@ public class RecursionClasswork{
         System.out.println(groupNoAdj(0,test5,12));
         System.out.println(groupNoAdj(0,test5,14));
         System.out.println(groupNoAdj(0,test5,7));
+
+        System.out.println(splitOdd10(test6));
+        System.out.println(splitOdd10(test7));
+        System.out.println(splitOdd10(test8));
     }
 }
