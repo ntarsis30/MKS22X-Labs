@@ -41,11 +41,15 @@ public class QueenBoard{
       return false;
     }
     board[r][c]=-1;
-    for (int i = 0; i < board.length && i!=r; i++){
-      board[i][c]++;
+    for (int i = 0; i < board.length; i++){
+      if (i!=r){
+        board[i][c]++;
+      }
     }
-    for (int i = 0; i < board.length && i!=c; i++){
-      board[r][i]++;
+    for (int i = 0; i < board.length; i++){
+      if(i!=c){
+        board[r][i]++;
+      }
     }
     int diag1 = r+c;
     int diag2 = c-r;
@@ -72,11 +76,15 @@ public class QueenBoard{
   */
   private void removeQueen(int r, int c){
     board[r][c]=0;
-    for (int i = 0; i < board.length && i!=r; i++){
-      board[i][c]--;
+    for (int i = 0; i < board.length; i++){
+      if (i!=r){
+        board[i][c]--;
+      }
     }
-    for (int i = 0; i < board.length && i!=c; i++){
-      board[r][i]--;
+    for (int i = 0; i < board.length; i++){
+      if(i!=c){
+        board[r][i]--;
+      }
     }
     int diag1 = r+c;
     int diag2 = c-r;
@@ -103,7 +111,21 @@ public class QueenBoard{
   *@throws IllegalStateException when the board starts with any non-zero value (e.g. you solved a 2nd time.)
   */
   public boolean solve(){
-    return true;
+    return solve(0);
+  }
+  public boolean solve(int row){
+    if (row==board.length){
+      return true;
+    }
+    for (int i = 0; i < board.length;i++){
+      if (addQueen(row,i)){
+        if (solve(row+1)){
+          return true;
+        }
+        removeQueen(row,i);
+      }
+    }
+    return false;
   }
 
   /**Find all possible solutions to this size board.
