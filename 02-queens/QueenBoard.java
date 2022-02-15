@@ -1,8 +1,9 @@
 public class QueenBoard{
-  private int[][]board;
-  public QueenBoard(int size){}{
-    
+  private int[][] board;
+  public QueenBoard(int size) {
+    board = new int[size][size];
   }
+
   /**
   *@return The output string formatted as follows:
   *All numbers that represent queens are replaced with 'Q'
@@ -15,7 +16,19 @@ public class QueenBoard{
   *excludes the characters up to the comment(*)
   */
   public String toString(){
-    return "";
+    String ans = "";
+    for (int i = 0; i < board.length; i++){
+      for (int j = 0; j < board.length; j++){
+        if (board[i][j]<0){
+          ans+= "Q ";
+        }
+        else{
+          ans+= "_ ";
+        }
+      }
+      ans+= "\n";
+    }
+    return ans;
   }
 
   /**
@@ -24,7 +37,32 @@ public class QueenBoard{
   * in which case the queen is added and all it's threatened positions are incremented
   */
   private boolean addQueen(int r, int c){
+    if (board[r][c]!=0){
+      return false;
+    }
+    board[r][c]=-1;
+    for (int i = 0; i < board.length && i!=r; i++){
+      board[i][c]++;
+    }
+    for (int i = 0; i < board.length && i!=c; i++){
+      board[r][i]++;
+    }
+    int diag1 = r+c;
+    int diag2 = c-r;
+    for (int i = 0; i < board.length; i++){
+      for (int j = 0; j < board.length; j++){
+        if (i+j==diag1 && i!=r){
+          board[i][j]++;
+        }
+        else if (j-i==diag2 && i!=r){
+          board[i][j]++;
+        }
+      }
+    }
     return true;
+
+
+
   }
 
   /**Remove the queen that was added to r,c
@@ -33,6 +71,25 @@ public class QueenBoard{
   *threatened positions are decremented
   */
   private void removeQueen(int r, int c){
+    board[r][c]=0;
+    for (int i = 0; i < board.length && i!=r; i++){
+      board[i][c]--;
+    }
+    for (int i = 0; i < board.length && i!=c; i++){
+      board[r][i]--;
+    }
+    int diag1 = r+c;
+    int diag2 = c-r;
+    for (int i = 0; i < board.length; i++){
+      for (int j = 0; j < board.length; j++){
+        if (i+j==diag1 && i!=r){
+          board[i][j]--;
+        }
+        else if (j-i==diag2 && i!=r){
+          board[i][j]--;
+        }
+      }
+    }
 
   }
 
