@@ -36,7 +36,7 @@ public class QueenBoard{
   *@postcondition the board is only changed when the function returns true
   * in which case the queen is added and all it's threatened positions are incremented
   */
-  private boolean addQueen(int r, int c){
+  public boolean addQueen(int r, int c){
     if (board[r][c]!=0){
       return false;
     }
@@ -45,11 +45,10 @@ public class QueenBoard{
       if (i!=r){
         board[i][c]++;
       }
-    }
-    for (int i = 0; i < board.length; i++){
       if(i!=c){
         board[r][i]++;
       }
+
     }
     int diag1 = r+c;
     int diag2 = c-r;
@@ -74,17 +73,16 @@ public class QueenBoard{
   *@postcondition the board is modified to remove that queen and all it's
   *threatened positions are decremented
   */
-  private void removeQueen(int r, int c){
+  public void removeQueen(int r, int c){
     board[r][c]=0;
     for (int i = 0; i < board.length; i++){
       if (i!=r){
         board[i][c]--;
       }
-    }
-    for (int i = 0; i < board.length; i++){
       if(i!=c){
         board[r][i]--;
       }
+
     }
     int diag1 = r+c;
     int diag2 = c-r;
@@ -132,7 +130,22 @@ public class QueenBoard{
   *@return the number of solutions found, and leaves the board filled with only 0's
   *@throws IllegalStateException when the board starts with any non-zero value (e.g. you ran solve() before this method)
   */
+  public int countSolutions(int row){
+    if (row==board.length){
+      return 1;
+    }
+    int ans = 0;
+    for (int i = 0; i < board.length; i++){
+      if (addQueen(row,i)){
+        ans += countSolutions(row+1);
+        removeQueen(row,i);
+
+      }
+    }
+    return ans;
+
+  }
   public int countSolutions(){
-    return 0;
+    return countSolutions(0);
   }
 }
