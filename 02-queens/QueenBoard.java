@@ -3,8 +3,6 @@ public class QueenBoard{
   private boolean animated;
   private int delay;
 
-
-
   public QueenBoard(int size) {
     board = new int[size][size];
   }
@@ -59,7 +57,6 @@ public class QueenBoard{
       if(i!=c){
         board[r][i]++;
       }
-
     }
     int diag1 = r+c;
     int diag2 = c-r;
@@ -98,7 +95,6 @@ public class QueenBoard{
       if(i!=c){
         board[r][i]--;
       }
-
     }
     int diag1 = r+c;
     int diag2 = c-r;
@@ -173,11 +169,9 @@ public class QueenBoard{
       if (addQueen(row,i)){
         ans += countSolutions(row+1);
         removeQueen(row,i);
-
       }
     }
     return ans;
-
   }
   public int countSolutions(){
     return countSolutions(0);
