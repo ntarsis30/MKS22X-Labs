@@ -1,7 +1,18 @@
 public class QueenBoard{
   private int[][] board;
+  private boolean animated;
+  private int delay;
+
+
+
   public QueenBoard(int size) {
     board = new int[size][size];
+  }
+  public void setAnimate(boolean newValue){
+    animated = newValue;
+  }
+  public void setDelay(int newValue){
+    delay = newValue;
   }
 
   /**
@@ -62,6 +73,11 @@ public class QueenBoard{
         }
       }
     }
+    if(animated){
+      System.out.println(Text.go(1,1));
+      System.out.println(this);//can modify here
+      Text.wait(delay);
+    }
     return true;
 
 
@@ -96,7 +112,11 @@ public class QueenBoard{
         }
       }
     }
-
+    if(animated){
+      System.out.println(Text.go(1,1));
+      System.out.println(this);//can modify here
+      Text.wait(delay);
+    }
   }
 
   /**Find the first solution configuration possible for this size board. Start by placing
@@ -109,6 +129,13 @@ public class QueenBoard{
   *@throws IllegalStateException when the board starts with any non-zero value (e.g. you solved a 2nd time.)
   */
   public boolean solve(){
+    for (int i = 0; i < board.length;i++){
+      for (int j = 0; j < board.length; j++){
+        if (board[i][j]!=0){
+          throw new IllegalStateException("Not clear");
+        }
+      }
+    }
     return solve(0);
   }
   public boolean solve(int row){
@@ -131,6 +158,13 @@ public class QueenBoard{
   *@throws IllegalStateException when the board starts with any non-zero value (e.g. you ran solve() before this method)
   */
   public int countSolutions(int row){
+    for (int i = 0; i < board.length;i++){
+      for (int j = 0; j < board.length; j++){
+        if (board[i][j]!=0){
+          throw new IllegalStateException("Not clear");
+        }
+      }
+    }
     if (row==board.length){
       return 1;
     }
