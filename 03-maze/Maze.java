@@ -115,7 +115,7 @@ private int solve(int row, int col, int ans){ //you can add more parameters sinc
         if(animate){
             clearTerminal();
             System.out.println(this);
-            wait(50);
+            wait(300);
         }
         char curr = maze[row][col];
         if(curr == 'E'){
