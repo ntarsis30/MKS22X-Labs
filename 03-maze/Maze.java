@@ -36,6 +36,10 @@ public Maze(String filename) throws FileNotFoundException{
     maze = new char[lines.size()][lines.get(0).length];
 	for (int i = 0; i < lines.size(); i++){
 	    for (int j = 0; j < lines.get(0).length; j++){
+            if (lines.get(i)[j]=='S'){
+                startRow=i;
+                startCol=j;
+            }
 		    maze[i][j] = lines.get(i)[j];
 	    }
 	}
@@ -88,7 +92,7 @@ public int solve(){
     clearTerminal();
     }
     //start solving at the location of the s.
-    return solve(startRow,startCol);
+    return solve(startRow,startCol,0);
 
 }
 
@@ -106,15 +110,34 @@ The 'E' remain the same
 All visited spots that were not part of the solution are changed to '.'
 All visited spots that are part of the solution are changed to '@'
 */
-private int solve(int row, int col){ //you can add more parameters since this is private
+private int solve(int row, int col, int ans){ //you can add more parameters since this is private
     //automatic animation! You are welcome.
-    if(animate){
-    gotoTop();
-    System.out.println(this);
-    wait(50);
+        if(animate){
+            clearTerminal();
+            System.out.println(this);
+            wait(50);
+        }
+        char curr = maze[row][col];
+        if(curr == 'E'){
+            return ans;
+        }
+        else if(curr == '#' || curr == '.' || curr == '@'){
+            return -1;
+        }
+        int[] dir1 = new int[] {1,-1,0,0};
+        int[] dir2 = new int[] {0,0,1,-1};
+        for(int i = 0; i < dir1.length; i++){
+            int newRow = row + dir1[i];
+            int newCol = col + dir2[i];
+            maze[row][col] = '@';
+            int check = solve(newRow, newCol, ans+1);
+            if(check > 0){
+                return check;
+            }
+            maze[row][col]='.';
+        }
+    return -1; //so it compiles
     }
 
-    //COMPLETE SOLVE
-    return -1; //so it compiles
 }
-}
+
