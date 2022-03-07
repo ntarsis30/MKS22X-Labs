@@ -111,7 +111,6 @@ All visited spots that were not part of the solution are changed to '.'
 All visited spots that are part of the solution are changed to '@'
 */
 private int solve(int row, int col, int ans){ //you can add more parameters since this is private
-    //automatic animation! You are welcome.
         if(animate){
             clearTerminal();
             System.out.println(this);
