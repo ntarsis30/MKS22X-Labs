@@ -3,6 +3,9 @@ public class Driver{
     public static void main(String[]args){
         //files do not require an extension like .txt or .dat
         String filename = "maze1";
+        if (args.length>0){
+            filename=args[0];
+        }
         try{
             Maze f;
             f = new Maze(filename);
