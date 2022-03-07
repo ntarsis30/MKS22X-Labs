@@ -2,7 +2,7 @@ import java.io.*;
 public class Driver{
     public static void main(String[]args){
         //files do not require an extension like .txt or .dat
-        String filename = "maze1";
+        String filename = "maze";
         if (args.length>0){
             filename=args[0];
         }
