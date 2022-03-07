@@ -136,7 +136,7 @@ private int solve(int row, int col, int ans){ //you can add more parameters sinc
             }
             maze[row][col]='.';
         }
-    return -1; //so it compiles
+    return -1;
     }
 
 }
