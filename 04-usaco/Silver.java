@@ -9,7 +9,6 @@ public class Silver{
             int t = in.nextInt();
             int[][][] dp = new int[n][m][t+1];
             int[][] grid = new int[n][m];
-
             in.nextLine();
             for(int i = 0; i < n; i++){
                 String line = in.nextLine();
@@ -19,7 +18,6 @@ public class Silver{
                     } 
                 }
             }
-            
             int sr = in.nextInt()-1;
             int sc = in.nextInt()-1;
             int er = in.nextInt()-1;
@@ -50,7 +48,5 @@ public class Silver{
         catch(FileNotFoundException e){
             return -1;
         }
-
     }
 }
-

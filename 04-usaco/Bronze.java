@@ -26,17 +26,14 @@ public class Bronze{
             int e = in.nextInt();
             int n = in.nextInt();
             int[][] grid = new int[r][c];
-
             for(int i = 0; i < r; i++){
                 for(int j = 0; j < c; j++){
                     grid[i][j] = in.nextInt();
                 }
             }
-            
             while(in.hasNextInt()){
                 stomp(grid, in.nextInt()-1, in.nextInt()-1, in.nextInt());
             }
-
             int ans = 0;
             for(int i = 0; i < r; i++){
                 for(int j = 0; j < c; j++){
@@ -50,6 +47,5 @@ public class Bronze{
         catch(FileNotFoundException e){
             return -1;
         }
-
     }
 }
