@@ -45,6 +45,17 @@ public class Quick{
         }
         return -1;
     }
+    public static void quicksort(int[] data){
+        quicksort(data,0,data.length-1);
+    }
+    public static void quicksort(int[] data,int lo,int hi){
+        //your code.
+        if(lo < hi){
+            int pivot = partition(data, lo, hi);
+            quicksort(data, lo, pivot-1);
+            quicksort(data, pivot+1, hi);
+        }
+    }
     public static void main(String[] args){
         //int [] data = new int[] {4,3,2,1,0};
         //int [] data = new int[] {4,3,2,1,0,997,998,999};
