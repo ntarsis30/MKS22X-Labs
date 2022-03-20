@@ -48,13 +48,17 @@ public class Quick{
     public static void main(String[] args){
         //int [] data = new int[] {4,3,2,1,0};
         //int [] data = new int[] {4,3,2,1,0,997,998,999};
-        int [] data = new int[] {997,998,999,4,3,2,1,0};
+        //int [] data = new int[] {997,998,999,4,3,2,1,0};
+        int[] data = new int[] {1,1,1,1,1,1,1,1,1,1};
         System.out.println("Original: "+Arrays.toString(data));
+        for (int i = 0; i < data.length; i++){
+            System.out.println(quickselect(data,i));
+        }
         //int pivot = partition( data , 0, 4);
         //int pivot = partition( data , 3, 7);
         //System.out.println("Pivot value: "+data[pivot]+ ", Pivot index: "+pivot);
         //System.out.println("Modified: "+Arrays.toString(data));
-        
+
         System.out.println();
     }
 }
