@@ -13,17 +13,15 @@ public class Merge{
         }
     }
     public static void merge(int[]destination, int[]temp, int leftIndex,int rightIndex){
-        int old = leftIndex;
-        int currRight = (rightIndex+leftIndex)/2+1;
-        int leftBound = currRight;
-        int curr = leftIndex;
+        int old = leftIndex, curr = leftIndex;
+        int currRight = (rightIndex+leftIndex)/2+1, leftBound = currRight;
         while (leftIndex < leftBound && currRight <= rightIndex){
             if (destination[leftIndex] <= destination[currRight]){
                 temp[curr]=destination[leftIndex];
                 leftIndex++;
             }
             else{
-                temp[curr] = destination[currRight];
+                temp[curr]=destination[currRight];
                 currRight++;
             }
             curr++;
@@ -41,7 +39,6 @@ public class Merge{
         for (int i = old; i <= rightIndex; i++){
             destination[i]=temp[i];
         }
-
     }
     public static void main(String[] args){
         int[] test = {4,3,2,10,7,4,11,200,6,8,3,150,3,1,-1,0};

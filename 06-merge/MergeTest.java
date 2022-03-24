@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
-//This is not my tester
+//THIS IS NOT MY TESTER!!
 public class MergeTest {
 
   public static void main(String[] args) {
