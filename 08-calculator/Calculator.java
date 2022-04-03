@@ -10,49 +10,47 @@ public class Calculator{
     *        OR (optionally: "too few operands for operation _" replace _ with +,- etc.)
     */
     public static double eval(String s){
-    Scanner in = new Scanner(s);
-    Deque<Double> stack = new ArrayDeque<Double>();
-    while(in.hasNext()){
-        if(in.hasNextDouble()){
-            double num = Double.parseDouble(in.next());
-            stack.add(num);
-        }
-        else{
-            if(stack.size()<2){
-                throw new IllegalArgumentException("too few operands");
+        Scanner in = new Scanner(s);
+        Deque<Double> stack = new ArrayDeque<Double>();
+        while(in.hasNext()){
+            if(in.hasNextDouble()){
+                double num = Double.parseDouble(in.next());
+                stack.add(num);
             }
-            double operand1 = stack.removeLast();
-            double operand2 = stack.removeLast();
-            String operation = in.next();
-            switch(operation){
-                case "+":
-                    stack.add(operand2+operand1);
-                    break;
-                case "*":
-                    stack.add(operand2*operand1);
-                    break;
-                case "-":
-                    stack.add(operand2-operand1);
-                    break;
-                case "/":
-                    stack.add(operand2/operand1);
-                    break;
-                case "%":
-                    stack.add(operand2%operand1); 
-                    break;
+            else{
+                if(stack.size()<2){
+                    throw new IllegalArgumentException("too few operands");
+                }
+                double operand1 = stack.removeLast();
+                double operand2 = stack.removeLast();
+                String operation = in.next();
+                switch(operation){
+                    case "+":
+                        stack.add(operand2+operand1);
+                        break;
+                    case "*":
+                        stack.add(operand2*operand1);
+                        break;
+                    case "-":
+                        stack.add(operand2-operand1);
+                        break;
+                    case "/":
+                        stack.add(operand2/operand1);
+                        break;
+                    case "%":
+                        stack.add(operand2%operand1); 
+                        break;
+                }
             }
         }
-
-    }
-    in.close();
-    if(stack.size()>1){
-        throw new IllegalArgumentException("too many operands");
-    }
-    else if(stack.size()<1){
-        throw new IllegalArgumentException("too few operands");
-    }
-    return stack.removeLast();
-    
+        in.close();
+        if(stack.size()>1){
+            throw new IllegalArgumentException("too many operands");
+        }
+        else if(stack.size()<1){
+            throw new IllegalArgumentException("too few operands");
+        }
+        return stack.removeLast();
     }
     public static void main(String[] args){
         System.out.println(eval("11 3 - 4 + 2.5 *"));
@@ -63,7 +61,5 @@ public class Calculator{
         //good System.out.println(eval(""));
         //good System.out.println(eval("1 1 1 +"));
         //good System.out.println(eval("1 1 1 - * +"));
-
-
     }
 }
