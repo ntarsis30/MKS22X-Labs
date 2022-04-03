@@ -27,16 +27,22 @@ public class Calculator{
             switch(operation){
                 case "+":
                     stack.add(operand2+operand1);
+                    break;
                 case "*":
                     stack.add(operand2*operand1);
+                    break;
                 case "-":
                     stack.add(operand2-operand1);
+                    break;
                 case "/":
                     stack.add(operand2/operand1);
+                    break;
                 case "%":
                     stack.add(operand2%operand1); 
+                    break;
             }
         }
+
     }
     in.close();
     if(stack.size()>1){
@@ -49,6 +55,15 @@ public class Calculator{
     
     }
     public static void main(String[] args){
-        
+        System.out.println(eval("11 3 - 4 + 2.5 *"));
+        System.out.println(eval("10 2.0 +"));
+        System.out.println(eval("8 2 + 99 9 - * 2 + 9 -"));
+        System.out.println(eval("1 2 3 4 5 + * - -"));
+        System.out.println(eval("25"));
+        //good System.out.println(eval(""));
+        //good System.out.println(eval("1 1 1 +"));
+        //good System.out.println(eval("1 1 1 - * +"));
+
+
     }
 }
