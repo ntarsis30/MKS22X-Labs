@@ -104,6 +104,7 @@ public class BurnTrees{
         DELAY = Integer.parseInt(args[3]);
       }
       //BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
+      
       for (double i = 5; i < 100; i+= 5){
         double actual = (double) i/100;
         System.out.println(i + " " + averageOfNRuns(100,500,actual));
@@ -113,6 +114,13 @@ public class BurnTrees{
         double actual = (double) i/100;
         System.out.println(i + " " + averageOfNRuns(100,500,actual));
       }
+      
+      //int test = 1000;//100 500
+      //double b = averageOfNRuns(100,test,0.61);
+      //System.out.println(b);
+      //System.out.println(b/((double)test));
+
+
 
 
       //int ans = b.animate(DELAY);//animate all screens
