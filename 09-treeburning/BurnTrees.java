@@ -81,6 +81,14 @@ public class BurnTrees{
       }
     }
   }
+  public static double averageOfNRuns(int n, int size, double density){
+    double answer = 0;
+    for (int i = 0; i < n; i++){
+      BurnTrees burn = new BurnTrees(size,size,density);
+      answer+=burn.run();
+    }
+    return (double) answer/n;
+  }
 
     public static void main(String[]args){
       int WIDTH = 20;
@@ -95,14 +103,23 @@ public class BurnTrees{
       if(args.length > 3){
         DELAY = Integer.parseInt(args[3]);
       }
-      BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
+      //BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
+      for (double i = 5; i < 100; i+= 5){
+        double actual = (double) i/100;
+        System.out.println(i + " " + averageOfNRuns(100,500,actual));
+      }
+      System.out.println();
+      for (double i = 55; i < 66; i+= 1){
+        double actual = (double) i/100;
+        System.out.println(i + " " + averageOfNRuns(100,500,actual));
+      }
 
 
       //int ans = b.animate(DELAY);//animate all screens
       //System.out.println(ans);//print the final answer
 
-      int ans = b.outputAll();//print all screens one after another
-      System.out.println(ans);//print the final answer
+      //int ans = b.outputAll();//print all screens one after another
+      //System.out.println(ans);//print the final answer
     }
 
 
