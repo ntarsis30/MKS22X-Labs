@@ -49,6 +49,13 @@ void draw(){
    x = change(x);
    y = change(y);
    avatar(x,y);
+   avatar(mouseX,mouseY);
+}
+void mouseClicked() {
+  MODE++;
+  if (MODE==4){
+    MODE=1;
+  }
 }
 int change(int value){
   /**
