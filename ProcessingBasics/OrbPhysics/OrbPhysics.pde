@@ -64,19 +64,19 @@ public class Orb{
     //Change the speed when you collide with the end of the screen (all 4 sides)
     if (x>=width-radius){
         x-=radius/10;
-        xSpeed=-(xSpeed)*2/3;
+        xSpeed=-(xSpeed)*5/6;
     }
     if (x<=radius){
         x+=radius/10;
-        xSpeed=-(xSpeed)*2/3;
+        xSpeed=-(xSpeed)*5/6;
     }
     if (y>=height-radius){
         y-=radius/10;
-        ySpeed=-(ySpeed)*2/3;
+        ySpeed=-(ySpeed)*5/6;
     }
     if (y<=radius){
         y+=radius/10;
-        ySpeed=-(ySpeed)*2/3;
+        ySpeed=-(ySpeed)*5/6;
     }
     
         
