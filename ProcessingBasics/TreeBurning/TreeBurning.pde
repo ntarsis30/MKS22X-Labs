@@ -92,6 +92,27 @@
      *2. Decide how to fill them in using the String[] parameter
      *   Colors: Fire = RED, Tree = GREEN, SPACE = WHITE, ASH = GREY
      */
+     for (int i = 0; i < lines.length;i++){
+       for (int j = 0; j < lines[i].length(); j++){
+         int y = i*SQUARESIZE;
+          int x = j*SQUARESIZE;
+          if (lines[i].charAt(j)=='@'){
+            fill(0,255,0);
+          }
+          if (lines[i].charAt(j)==' '){
+            fill(255);
+          }
+          if (lines[i].charAt(j)=='w'){
+            fill(255,0,0);
+          }
+          if (lines[i].charAt(j)=='.'){
+            fill(123);
+          }
+          stroke(0);
+          // For every column and row, a rectangle is drawn at an (x,y) location scaled and sized by videoScale.
+          rect(x, y, SQUARESIZE, SQUARESIZE);
+       }
+     }
 
   }
 
