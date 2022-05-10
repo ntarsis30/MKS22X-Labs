@@ -8,6 +8,11 @@ void mouseClicked() {
     //The x and y positions are the same as the mouse
     //the radius should be between in the range [20.0,70.0)
     //the xSpeed and ySpeed should be in the range [-3.0,3.0)
+    float xs = random(-3.0,3.0);
+    float ys = random(-3.0,3.0);
+    float rad = random(20.0,70.0);
+    
+    orbList.add(new Orb(mouseX,mouseY,xs,ys,rad));
 }
 void draw() {
     background(255);
@@ -43,12 +48,17 @@ public class Orb{
     //make sure it is the correct color
     //make sure you read the parameters of ellipse, so that you have the correct size.
     //radius is NOT one of the parameters of ellipse by default.
+    fill(c);
+    ellipse(x, y, radius*2, radius*2);
     }
 
     void move(){
     //PART 2
     //change the x based on the xSpeed
     //change the y based on the ySpeed
+    x+=xSpeed;
+    y+=ySpeed;
+    
 
     //PART 3
     //Change the speed when you collide with the end of the screen (all 4 sides)
