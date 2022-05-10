@@ -36,17 +36,40 @@ void avatar(int x, int y){
 //to test your code, here is a setup/draw
 
 //The code should draw 3 avatars, one of them moves.
-int xp,yp;
+int x,y;
+int MODE;
 void setup(){
-  size(800,600);
-  xp = 0;
-  yp = 0;
+   size(800,800);
+   MODE = 3;
+   x = width/2;
+   y = height/2;
 }
 void draw(){
-  background(255);
-  avatar(xp,yp);
-  xp++;
-  yp++;
-  avatar(100,100);
-  avatar(600,300);
+   background(255);
+   x = change(x);
+   y = change(y);
+   avatar(x,y);
 }
+int change(int value){
+  /**
+   mode 1: return a random location on the screen.
+   mode 2: change value by +1, 0, or -1 randomly
+   mode 3: change value by +1 , but if it goes past the end of the screen ,
+         wrap back around to the other end of the screen.
+  */
+
+  switch(MODE){
+   case 1:
+     return (int) random(0,800);
+   case 2:
+     return value + (int) random (0,3)-1;
+   case 3:
+     value++;
+     if (value>=800){
+       value=0;
+     }
+     return value;
+   default:
+     return width/2;
+  }
+  }
