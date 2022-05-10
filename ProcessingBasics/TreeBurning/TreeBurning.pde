@@ -71,7 +71,11 @@
      *Please use the same values that it was initialized with in the setup.
      * ANSWER: UPDATE THE NEXT LINE
      */
-    treeSim = null;
+    ROWS = 50;
+    COLS = 60;
+    DENSITY = .61;
+    treeSim = new BurnTrees(ROWS, COLS, DENSITY);
+    SQUARESIZE = width/COLS;//side length
   }
 
 
