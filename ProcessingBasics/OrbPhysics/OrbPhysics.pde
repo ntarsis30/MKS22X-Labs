@@ -1,12 +1,11 @@
-
 ArrayList<Orb>orbList;
 int MODE;
 final int GRAVITY = 0;
 final int ORBIT = 1;
 final int SPRING = 2;
-final int SPRING_CONSTANT = 50;
-final float SPRING_LENGTH = 0.99;
-final float SPRING_DAMPEN = 0.015;
+final int SPRING_LENGTH = 50;
+final float SPRING_DAMPEN = 0.99;
+final float SPRING_CONSTANT = 0.015;
 String[] check = new String[] {"GRAVITY","ORBIT","SPRING"};
 boolean background = false;
 boolean gravity = true;
@@ -53,6 +52,9 @@ void draw() {
     for (Orb o : orbList) {
     if (MODE==ORBIT){
         center.attract(o);
+    }
+    else if (MODE == SPRING){
+        center.springAttract(o);
     }
     else{
         o.move();
@@ -132,14 +134,27 @@ public class Orb{
     }
     void attract (Orb Other){
     float dist = dist(x,y,Other.x,Other.y);
-    Other.xSpeed += 20*(x-Other.x)/(dist*dist);
-    Other.ySpeed += 20*(y-Other.y)/(dist*dist);
+    Other.xSpeed+=20*(x-Other.x)/(dist*dist);
+    Other.ySpeed+=20*(y-Other.y)/(dist*dist);
     Other.x+=Other.xSpeed;
     Other.y+=Other.ySpeed;
     if (gravity){
         Other.ySpeed+=0.15;
     }
     
+    }
+    void springAttract(Orb other) {
+    float dist = dist(x, y, other.x, other.y) ;
+    float force = (dist-SPRING_LENGTH)*SPRING_CONSTANT;
+    other.xSpeed+=(x-other.x)*force/dist;
+    other.ySpeed+=(y-other.y)*force/dist;
+    other.xSpeed*=SPRING_DAMPEN;
+    other.ySpeed*=SPRING_DAMPEN;
+    other.x+=other.xSpeed;
+    other.y+=other.ySpeed;
+    if (gravity){
+        other.ySpeed+=0.15;
+    }
     }
     
 }
