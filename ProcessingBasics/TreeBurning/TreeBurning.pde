@@ -46,7 +46,7 @@
      *(The print statement is NOT part of the simulation, it is to help you answer this question)
      *hint:  If you cannot figure this out analytically, experiment to test
      *       the difference by changing the code. A print statement is commented out to facilitate testing.
-     *ANSWER HERE:
+     *ANSWER HERE: This is done so that the tick will be slow enough to be observable
      */
 
     String[]lines = treeSim.toString().split("\n");
