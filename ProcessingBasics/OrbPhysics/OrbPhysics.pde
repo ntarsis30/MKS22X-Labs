@@ -25,7 +25,6 @@ void mouseClicked() {
     float ys = random(-3.0,3.0);
     float rad = random(20.0,70.0);
     */
-    
     orbList.add(new Orb(mouseX,mouseY,5,0,20));
 }
 void keyPressed(){
