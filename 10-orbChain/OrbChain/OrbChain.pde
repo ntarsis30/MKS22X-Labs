@@ -1,8 +1,9 @@
-final static int SPRING = 2;
-final static float SPRING_LENGTH = 50;
-final static float SPRING_DAMPEN = 0.990;
-final static float SPRING_CONSTANT = 0.015;
-final static int MODE = SPRING;
+static int SPRING = 2;
+static float SPRING_LENGTH = 50;
+static float SPRING_DAMPEN = 0.990;
+static float SPRING_CONSTANT = 0.015;
+static int MODE = SPRING;
+static float GRAVITY = 0.35;
 OrbList orbs;
 void setup() {
     size(1000, 800);
