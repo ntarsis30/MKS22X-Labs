@@ -75,7 +75,6 @@ public class MyDeque<E>{
         size++;
         data[end]=element;
     }
-
     public E removeFirst(){
         if(size == 0){
             throw new NoSuchElementException("size 0");
@@ -95,7 +94,6 @@ public class MyDeque<E>{
         }
         return temp;
     }
-
     public E removeLast(){
         if(size == 0){
             throw new NoSuchElementException("size 0");
@@ -115,21 +113,18 @@ public class MyDeque<E>{
         }
         return temp;
     }
-
     public E getFirst () { 
         if(size == 0){
             throw new NoSuchElementException("size 0");
         }
         return data[start];
     }
-
     public E getLast() { 
         if(size == 0){
             throw new NoSuchElementException("size 0");
         }
         return data[end];
     }
-
     private void resize (){
         @SuppressWarnings("unchecked")
         E[] resize = (E[])new Object[data.length*2+1];
