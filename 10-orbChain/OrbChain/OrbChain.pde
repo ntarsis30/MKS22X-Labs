@@ -1,9 +1,13 @@
-static int SPRING = 2;
+final static int SPRING = 2;
 static float SPRING_LENGTH = 50;
 static float SPRING_DAMPEN = 0.990;
 static float SPRING_CONSTANT = 0.015;
-static int MODE = SPRING;
+final static int MODE = SPRING;
 static float GRAVITY = 0.35;
+final static int Add = 0;
+final static int Insert = 1;
+final static int Delete = 2;
+static int CLICK_MODE = Add;
 OrbList orbs;
 void keyPressed(){
     if (key == '1'){
@@ -35,6 +39,9 @@ void keyPressed(){
     }
     if (key == '8'){
         GRAVITY/=1.25;
+    }
+    if (key == ' '){
+      CLICK_MODE=(CLICK_MODE+1)%3;
     }
 }
 
