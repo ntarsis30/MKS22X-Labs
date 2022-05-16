@@ -50,7 +50,15 @@ void setup() {
     orbs = new OrbList();
 }
 void mouseClicked() {
-    orbs.add(new OrbNode(mouseX,mouseY,0,0,30));
+    if (CLICK_MODE==Add){
+      orbs.add(new OrbNode(mouseX,mouseY,0,0,30));
+    }
+    else if (CLICK_MODE==Insert){
+      orbs.add(mouseX,new OrbNode(mouseX,mouseY,0,0,30));
+    }
+    else{
+      
+    }
 }
 void draw() {
     background(255);

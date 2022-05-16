@@ -21,6 +21,18 @@ void add(OrbNode orb){
     last.prev = orb;
 }
 
+void add(int xcor,OrbNode toBeAdded){
+    OrbNode current = first;
+    //advance current to next until it is null, move() each of the nodes
+    while (current.x<=xcor && current.next!=null){
+      current=current.next;
+    }
+    current.prev.next=toBeAdded;
+    toBeAdded.prev = current.prev;
+    current.prev=toBeAdded;
+    toBeAdded.next=current;
+}
+
 /**
 *complete this method
 *process all nodes by running move.
