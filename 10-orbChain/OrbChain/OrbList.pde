@@ -33,6 +33,24 @@ void add(int xcor,OrbNode toBeAdded){
     toBeAdded.next=current;
 }
 
+void delete(OrbNode target){
+  if (target!=null){
+    target.prev.next = target.next;
+    target.next.prev=target.prev;
+  }
+}
+
+OrbNode getNodeAt(int x, int y){
+  OrbNode current = first;
+  while (current.next!=null){
+    current=current.next;
+    if (dist(x,y,current.x,current.y)<=current.radius){
+      return current;
+    }
+  }
+  return null;
+}
+
 /**
 *complete this method
 *process all nodes by running move.
