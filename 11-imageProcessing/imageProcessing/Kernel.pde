@@ -29,9 +29,17 @@ public class Kernel {
     /**You must write this method that applies the kernel to the source,
     *and saves the data to the destination.*/
     void apply(PImage source, PImage destination) {
-
+      for (int i = 0; i < source.height; i++){
+        for (int j = 0; j < source.width; j++){
+          if(i==0||j==0||i==source.height-1||j==source.width-1){
+            destination.set(j,i,0);
+          }
+          else{
+            destination.set(j,i,calcNewColor(source,j,i));
+          }
           
         }
+      }
         
       
       
