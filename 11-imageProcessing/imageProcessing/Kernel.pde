@@ -16,9 +16,27 @@ public class Kernel {
       for (int i = 0; i < 3; i++){
         for (int j = 0; j < 3; j++){
           r+=(kernel[i][j] * red(img.get(x+j-1,y+i-1)));
-          g+=(kernel[i][j] * blue(img.get(x+j-1,y+i-1)));
-          b+=(kernel[i][j] * green(img.get(x+j-1,y+i-1)));
+          g+=(kernel[i][j] * green(img.get(x+j-1,y+i-1)));
+          b+=(kernel[i][j] * blue(img.get(x+j-1,y+i-1)));
         }
+      }
+      if (r>255){
+        r=255;
+      }
+      if (r<0){
+        r=0;
+      }
+      if (b>255){
+        b=255;
+      }
+      if (b<0){
+        b=0;
+      }
+      if (g>255){
+        g=255;
+      }
+      if (g<0){
+        g=0;
       }
       return color(r,g,b);
     //Hint: start by always returning black.
